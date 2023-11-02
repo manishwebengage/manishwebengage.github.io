@@ -16,4 +16,14 @@
     "sha256_cert_fingerprints":
     ["F1:08:FB:A0:83:93:F6:E6:FF:44:22:90:D9:9E:7D:62:42:88:77:6E:5D:12:22:63:6A:3E:11:65:CB:7D:72:8D"]
   }
+}
+,
+  {
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.webengage.staging",
+    "sha256_cert_fingerprints":
+    ["F1:08:FB:A0:83:93:F6:E6:FF:44:22:90:D9:9E:7D:62:42:88:77:6E:5D:12:22:63:6A:3E:11:65:CB:7D:72:8D"]
+  }
 }]
