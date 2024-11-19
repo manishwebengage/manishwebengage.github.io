@@ -1,118 +1,136 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Monaco; color: #c7c8c9; -webkit-text-stroke: #c7c8c9; background-color: #e2e2e2; background-color: rgba(226, 226, 226, 0.039)}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Monaco; color: #c7c8c9; -webkit-text-stroke: #c7c8c9; background-color: #e2e2e2; background-color: rgba(226, 226, 226, 0.039); min-height: 16.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Screen Survey</title>
+    <style>
+        .survey-container {
+            display: none;
+        }
+        .survey-container.active {
+            display: block;
+        }
+        .survey-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .survey-button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;title&gt;Multi-Screen Survey&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.survey-container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>display: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.survey-container.active {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>display: block;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.survey-button {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>padding: 10px 20px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>background-color: #4CAF50;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>border: none;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>cursor: pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.survey-button:disabled {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>background-color: #ddd;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Survey&lt;/h1&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="screen1" class="survey-container active"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Step 1: Basic Information&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;form id="form1"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label for="name"&gt;Full Name:&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;&lt;br&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label for="email"&gt;Email Address:&lt;/label&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;&lt;br&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button type="button" class="survey-button" onclick="nextScreen(2)"&gt;Next&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="screen2" class="survey-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Step 2: Survey Questions&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;form id="form2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label&gt;How satisfied are you with our service?&lt;/label&gt;&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;input type="radio" id="satisfaction1" name="satisfaction" value="Very Satisfied" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label for="satisfaction1"&gt;Very Satisfied&lt;/label&gt;&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;input type="radio" id="satisfaction2" name="satisfaction" value="Satisfied"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label for="satisfaction2"&gt;Satisfied&lt;/label&gt;&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;input type="radio" id="satisfaction3" name="satisfaction" value="Neutral"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label for="satisfaction3"&gt;Neutral&lt;/label&gt;&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;input type="radio" id="satisfaction4" name="satisfaction" value="Dissatisfied"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label for="satisfaction4"&gt;Dissatisfied&lt;/label&gt;&lt;br&gt;&lt;br&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button type="button" class="survey-button" onclick="nextScreen(3)"&gt;Next&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="screen3" class="survey-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;Step 3: Final Comments&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;form id="form3"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;label for="comments"&gt;Any additional comments?&lt;/label&gt;&lt;br&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;textarea id="comments" name="comments"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button type="button" class="survey-button" onclick="submitSurvey()"&gt;Submit&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let currentScreen = 1;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function nextScreen(screenNumber) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>document.getElementById(`screen${currentScreen}`).classList.remove('active');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>document.getElementById(`screen${screenNumber}`).classList.add('active');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>currentScreen = screenNumber;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function submitSurvey() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>const form1 = document.getElementById('form1');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>const form2 = document.getElementById('form2');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>const form3 = document.getElementById('form3');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>const surveyData = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>name: form1.name.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>email: form1.email.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>satisfaction: form2.satisfaction.value,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>comments: form3.comments.value</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>alert('Survey Submitted!\n' + JSON.stringify(surveyData, null, 2));</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>form1.reset();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>form2.reset();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>form3.reset();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>nextScreen(1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+    <h1>Survey</h1>
+
+    <div id="screen1" class="survey-container active">
+        <h2>Step 1: Basic Information</h2>
+        <form id="form1">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <button type="button" class="survey-button" onclick="nextScreen(2)">Next</button>
+        </form>
+    </div>
+
+    <div id="screen2" class="survey-container">
+        <h2>Step 2: Survey Questions</h2>
+        <form id="form2">
+            <label>How satisfied are you with our service?</label><br>
+            <input type="radio" id="satisfaction1" name="satisfaction" value="Very Satisfied">
+            <label for="satisfaction1">Very Satisfied</label><br>
+            <input type="radio" id="satisfaction2" name="satisfaction" value="Satisfied">
+            <label for="satisfaction2">Satisfied</label><br>
+            <input type="radio" id="satisfaction3" name="satisfaction" value="Neutral">
+            <label for="satisfaction3">Neutral</label><br>
+            <input type="radio" id="satisfaction4" name="satisfaction" value="Dissatisfied">
+            <label for="satisfaction4">Dissatisfied</label><br><br>
+
+            <button type="button" class="survey-button" onclick="nextScreen(3)">Next</button>
+        </form>
+    </div>
+
+    <div id="screen3" class="survey-container">
+        <h2>Step 3: Final Comments</h2>
+        <form id="form3">
+            <label for="comments">Any additional comments?</label><br>
+            <textarea id="comments" name="comments"></textarea><br><br>
+
+            <button type="button" class="survey-button" onclick="submitSurvey()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        let currentScreen = 1;
+
+        // Function to move to the next screen
+        function nextScreen(screenNumber) {
+            if (screenNumber === 2 && !validateStep1()) {
+                return; // Prevent proceeding if step 1 is not valid
+            }
+            if (screenNumber === 3 && !validateStep2()) {
+                return; // Prevent proceeding if step 2 is not valid
+            }
+            
+            document.getElementById(`screen${currentScreen}`).classList.remove('active');
+            document.getElementById(`screen${screenNumber}`).classList.add('active');
+            currentScreen = screenNumber;
+        }
+
+        // Validate Step 1 (Basic Information)
+        function validateStep1() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !email) {
+                alert("Please fill out all fields in Step 1.");
+                return false;
+            }
+            return true;
+        }
+
+        // Validate Step 2 (Satisfaction Question)
+        function validateStep2() {
+            const satisfaction = document.querySelector('input[name="satisfaction"]:checked');
+            if (!satisfaction) {
+                alert("Please select your satisfaction level.");
+                return false;
+            }
+            return true;
+        }
+
+        // Submit the survey and show data in an alert
+        function submitSurvey() {
+            const form1 = document.getElementById('form1');
+            const form2 = document.getElementById('form2');
+            const form3 = document.getElementById('form3');
+
+            const surveyData = {
+                name: form1.name.value,
+                email: form1.email.value,
+                satisfaction: form2.satisfaction.value,
+                comments: form3.comments.value
+            };
+
+            alert('Survey Submitted!\n' + JSON.stringify(surveyData, null, 2));
+
+            // Reset all forms
+            form1.reset();
+            form2.reset();
+            form3.reset();
+
+            // Go back to the first screen
+            nextScreen(1);
+        }
+    </script>
+
 </body>
 </html>
