@@ -68,6 +68,10 @@
         </form>
     </div>
 
+    <div id="screen4" class="survey-container">
+        <h2>Thanks for participating in Survey !</h2>
+    </div>
+
     <script>
         let currentScreen = 1;
 
@@ -120,7 +124,7 @@
                 comments: form3.comments.value
             };
 
-            alert('Survey Submitted!\n' + JSON.stringify(surveyData, null, 2));
+            // alert('Survey Submitted!\n' + JSON.stringify(surveyData, null, 2));
 
             // Reset all forms
             form1.reset();
@@ -128,7 +132,7 @@
             form3.reset();
 
             // Go back to the first screen
-            nextScreen(1);
+            nextScreen(4);
         }
     </script>
 
